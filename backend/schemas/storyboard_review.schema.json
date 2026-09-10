@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Storyboard Visual Review",
+  "type": "object",
+  "properties": {
+    "task_id": { "type": "string", "minLength": 1 },
+    "decision": { "type": "string", "enum": ["pass", "warn", "block"] },
+    "issues": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "properties": {
+          "task_id": { "type": "string", "minLength": 1 },
+          "reason": { "type": "string", "minLength": 1 },
+          "repair_instruction": { "type": "string", "minLength": 1 }
+        },
+        "required": ["task_id", "reason", "repair_instruction"],
+        "additionalProperties": false
+      }
+    },
+    "reason": { "type": "string", "minLength": 1 }
+  },
+  "required": ["task_id", "decision", "issues", "reason"],
+  "additionalProperties": false
+}

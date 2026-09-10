@@ -1,0 +1,4 @@
+interface:
+  display_name: "剧集设计"
+  short_description: "统一完成大纲、导演、剧本、文字分镜和自动镜头拆解合同"
+  default_prompt: "Use $design-episode to turn the approved creative brief into a synchronized production-ready episode package."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex 视频制作主控"
+  short_description: "接入并调度可恢复的 AI 漫剧与视频生产状态机"
+  default_prompt: "Use $manga-orchestrator to check setup or advance the selected AI video episode."

@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+.DS_Store
+.venv/
+node_modules/
+.next/
+.playwright-cli/
+*.tsbuildinfo
+
+# Local configuration and credentials. Keep only the documented template.
+.env
+.env.*
+!.env.example
+
+# Generated reviews, exports, experiments, and private creative material.
+.tmp/
+.review_tmp/
+output/
+artifacts/
+drafts/
+.artifacts/
+design-qa.md
+
+# This public package exposes the workflow orchestrator. Local experimental
+# skills and retired orchestration metadata stay out of the shared core.
+.agents/skills/qiguan-buchong-dashi/
+backend/skills/orchestration/
+
+# Runtime data is local-only. Keep the directory marker, never episode data.
+workspace/**
+!workspace/.gitkeep
