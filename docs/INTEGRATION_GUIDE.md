@@ -2,6 +2,8 @@
 
 这份指南面向刚克隆仓库、准备把流程接到自己 Codex 和生成 Provider 的使用者。先验证本地状态机，再逐步打开真实生成，避免把安装、流程和付费 Provider 问题混在一起。
 
+最快方式：从仓库根目录打开 Codex，发送 `一键配置 AI漫剧-Codex 环境`。Codex 会自动安装仓库依赖、运行测试和前端构建、检查 Skill 与 Provider，并且不会生成任何媒体。
+
 ## 接入完成的标准
 
 1. Python 状态机测试通过；
@@ -12,23 +14,15 @@
 
 ## 1. 准备运行环境
 
-必需：Python 3.9+、Node.js 20+、npm，以及能在仓库根目录工作的 Codex Desktop、Codex CLI 或 IDE 扩展。建议安装 `ffprobe`，用于更严格的视频校验。
+必需：Python 3.9+、Node.js 20.9+、npm，以及能在仓库根目录工作的 Codex Desktop、Codex CLI 或 IDE 扩展。建议安装 `ffprobe`，用于更严格的视频校验。
 
-先运行不会触发生成服务的检查：
+也可以直接在终端运行同一个无付费副作用的配置脚本：
 
 ```bash
-python3 --version
-node --version
-npm --version
-
-python3 -m unittest discover -s backend/tests -v
-cd frontend
-npm install
-npm run build
-cd ..
+python3 scripts/bootstrap.py
 ```
 
-Python 测试失败时先修状态机，不要继续接 Provider。
+只查看版本和 Provider 状态，不安装或构建：`python3 scripts/bootstrap.py --check-only`。Python 测试失败时先修状态机，不要继续接 Provider。
 
 ## 2. 让 Codex 发现核心 Skill
 
@@ -42,10 +36,10 @@ Python 测试失败时先修状态机，不要继续接 Provider。
 
 从仓库根目录打开 Codex。Codex 会扫描仓库级 `.agents/skills`；也可以用 `$manga-orchestrator` 显式调用。官方说明见 [Build skills](https://developers.openai.com/codex/skills)。
 
-首次建议发送：
+首次建议直接发送：
 
 ```text
-$manga-orchestrator 做首次接入检查。只检查本地依赖、状态机、Skill 和 Provider 可用性，不生成图片或视频。
+一键配置 AI漫剧-Codex 环境
 ```
 
 如果列表里没有该 Skill：

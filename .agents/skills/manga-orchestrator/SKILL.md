@@ -1,6 +1,6 @@
 ---
 name: manga-orchestrator
-description: Set up, advance, repair, or review an AI manga/video episode through deterministic workflow handoffs and visible native Codex subagents; never directly edit status.json.
+description: One-click set up, advance, repair, or review this AI manga/video workflow through deterministic handoffs and visible native Codex subagents; trigger on “一键配置 AI漫剧-Codex 环境” and never directly edit status.json.
 ---
 
 # AI Manga Orchestrator
@@ -9,11 +9,18 @@ Use this skill when onboarding this repository or advancing, repairing, or revie
 
 ## First-run branch
 
-When the user is setting up the repository rather than operating an existing episode, read the repository guide at [docs/INTEGRATION_GUIDE.md](../../../docs/INTEGRATION_GUIDE.md) and perform only the requested preflight:
+When the user says `一键配置 AI漫剧-Codex 环境`, read [docs/INTEGRATION_GUIDE.md](../../../docs/INTEGRATION_GUIDE.md), then run `python3 scripts/bootstrap.py` from the repository root.
 
-1. Verify Python, Node/npm, the Python tests, and the frontend build.
+- Fix safe repository-local setup failures automatically and rerun the failed check.
+- If Python 3.9+ or Node.js 20.9+ is absent, use an available supported package manager when the user's setup request authorizes it; otherwise report the exact system dependency that remains.
+- Finish by reporting Python/Node readiness, tests, frontend build, Skill discovery, image Provider readiness, video Provider readiness, and the workbench launch command.
+- Do not create a project or episode and do not generate text, images, or video during setup.
+
+For any other first-run or preflight request, perform only the requested checks:
+
+1. Use `scripts/bootstrap.py` for Python, Node/npm, Python tests, frontend installation/build, and read-only Provider checks.
 2. Confirm that this repository-level skill is discoverable from `.agents/skills`.
-3. Inspect provider availability without generating media. Do not treat an unconfigured provider as a successful integration.
+3. Do not treat an unconfigured Provider as a successful integration.
 4. Create a minimal project or episode only when the user asks for it.
 5. Stop before paid or external generation unless the current user request authorizes that exact action. Video still requires its normal revision-bound confirmation.
 
