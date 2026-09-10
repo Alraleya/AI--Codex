@@ -11,7 +11,13 @@ git clone "https://github.com/Alraleya/AI--Codex.git"
 cd "AI--Codex"
 ```
 
-从该目录打开 Codex，发送 README 第一行的口令。Codex 会自动安装依赖、运行测试和前端构建、确认仓库 Skill，并只读检查图片/视频 Provider；**不会触发任何媒体生成或付费调用**。
+首次建议直接发送：
+
+```text
+一键配置 AI漫剧-Codex 环境
+```
+
+Codex 会自动安装依赖、运行测试和前端构建、确认仓库 Skill，并只读检查图片/视频 Provider；**不会触发任何媒体生成或付费调用**。
 
 环境完成后，启动工作台：
 
