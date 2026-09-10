@@ -25,6 +25,12 @@ Codex 会自动安装依赖、运行测试和前端构建、确认仓库 Skill�
 python3 scripts/start_workbench.py --open
 ```
 
+也可以直接对 Codex 说：
+
+```text
+启动工作台
+```
+
 默认地址：`http://127.0.0.1:3000`。终端用户也可直接运行 `python3 scripts/bootstrap.py`；详细接入见 [首次接入指南](docs/INTEGRATION_GUIDE.md)。
 
 ## 核心组成
@@ -81,6 +87,8 @@ python3 scripts/start_workbench.py --open
 ![《西游重生》九阶段生产管线](docs/images/workbench-xiyou-episode.png)
 
 ![《西游重生》角色定妆资产](docs/images/workbench-xiyou-assets.png)
+
+![《西游重生》视频参考绑定与本单元定妆](docs/images/workbench-xiyou-video-binding.png)
 
 截图仅展示界面；公开仓库不包含对应剧集、Prompt、参考图、视频或状态数据。
 
